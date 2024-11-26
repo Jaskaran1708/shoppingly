@@ -1,0 +1,81 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Search{% endblock title %}
+
+
+{% block main-content %}
+<!-- 1st Product Slider -->
+{% if result %}
+<div class="m-3">
+ <h2>Search Results: </h2>
+ <!-- Slider 1 -->
+ <div class="owl-carousel" id="slider1">
+  {% for b in result %}
+    <a href="{% url 'product-detail' b.id%}" class="btn"><div class="item"><img src="{{b.Product_image.url}}" alt="" height="300px"><span class="fw-bold">{{b.Title}}</span><br><span class="fs-5">Rs. {{b.Discounted_price}}</span></div></a>
+  {% endfor %}
+  
+ </div>
+</div>
+{% else %}
+<h1> Wrong query </h1>
+{% endif %}
+<!-- End 1st Product Slider -->
+
+
+
+
+ <div class="container my-5">
+  <div class="row">
+   <div class="col-sm-3">
+    <div class="card mb-3">
+      <div class="card-body">
+      <img src="{% static 'app/images/payavail/cc.jpg' %}" alt="" srcset="" class="img-fluid">
+      </div>
+    </div>
+   </div>
+   <div class="col-sm-3">
+    <div class="card mb-3">
+      <div class="card-body">
+       <img src="{% static 'app/images/payavail/upi.jpg' %}" alt="" srcset="" class="img-fluid">
+      </div>
+    </div>
+   </div>
+   <div class="col-sm-3">
+    <div class="card mb-3">
+      <div class="card-body">
+       <img src="{% static 'app/images/payavail/nb.jpg' %}" alt="" srcset="" class="img-fluid">
+      </div>
+    </div>
+   </div>
+   <div class="col-sm-3">
+    <div class="card mb-3">
+      <div class="card-body">
+       <img src="{% static 'app/images/payavail/bj.jpg' %}" alt="" srcset="" class="img-fluid">
+      </div>
+    </div>
+   </div>
+  </div>
+ </div>
+ <!-- End Payment Info Section -->
+{% endblock main-content %}
+
+
+
+
+{% comment %} {% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Search Results{% endblock title %}
+{% block main-content %}
+<!-- 1st Product Slider -->
+<div class="m-3">
+ <h2>Search Results: </h2>
+ <!-- Slider 1 -->
+ <div class="owl-carousel" id="slider1">
+  {% for b in Bottomwear %}
+    <a href="{% url 'product-detail' b.id%}" class="btn"><div class="item"><img src="{{b.Product_image.url}}" alt="" height="300px"><span class="fw-bold">{{b.Title}}</span><br><span class="fs-5">Rs. {{b.Discounted_price}}</span></div></a>
+  {% endfor %}
+  
+ </div>
+</div>
+<!-- End 1st Product Slider -->
+{% endblock main-content %} {% endcomment %}
