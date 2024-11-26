@@ -11,6 +11,8 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'shoppingly.settings')
+settings_module = 'gymbuddy.deployment' if 'WEBSITE_HOSTNAME' in os.environ else 'shoppingly.settings'
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings_module)
 
 application = get_wsgi_application()
